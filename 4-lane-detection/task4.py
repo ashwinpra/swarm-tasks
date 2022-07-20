@@ -1,11 +1,6 @@
 import cv2 
 import numpy as np
 
-"""
-#TODO Region of Interest through a mask 
-#TODO Detect the straight lines using Hough Line Transform.
-"""
-
 # Capturing and decoding video file
 vid = cv2.VideoCapture('./level3_raw.mp4')
 
@@ -48,7 +43,7 @@ def findPath(img, nr):
         for line in lines:
             x1, y1, x2, y2 = line[0]
             # Drawing lines to denote path
-            cv2.line(img, (x1, y1), (x2, y2), (0,0,255), 2)
+            cv2.line(img, (x1, y1), (x2, y2), (0,0,255), 10)
 
     # Returning image with lines denoting path
     return img

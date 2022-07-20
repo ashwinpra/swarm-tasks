@@ -1,5 +1,11 @@
 # Documentation
 
+Things I am trying right now: 
+- Modifying the code made for winterschool 
+- Trying again based on the article given 
+- Trying again based on the medium article 
+- Following YT Video 
+
 ## References Used
 
 For this topic, you are required to understand some of the basic image segmentation techniques such as thresholding and edge-based methods. Knowledge of clustering-based or learning-based approaches will have my respect. Image segmentation methods are extensively explained in the blog What is image
