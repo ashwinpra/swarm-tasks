@@ -7,7 +7,7 @@ import numpy as np
 """
 
 # Capturing and decoding video file
-vid = cv2.VideoCapture('path1.mp4')
+vid = cv2.VideoCapture('./level3_raw.mp4')
 
 # Function to find path from video
 def findPath(img, nr):
@@ -44,10 +44,11 @@ def findPath(img, nr):
 
     # Hough Line Transform
     lines = cv2.HoughLinesP(edges, 1, np.pi/180, 100, np.array([]), minLineLength=40, maxLineGap=5)
-    for line in lines:
-        x1, y1, x2, y2 = line[0]
-        # Drawing lines to denote path
-        cv2.line(img, (x1, y1), (x2, y2), (0,0,255), 2)
+    if lines is not None:
+        for line in lines:
+            x1, y1, x2, y2 = line[0]
+            # Drawing lines to denote path
+            cv2.line(img, (x1, y1), (x2, y2), (0,0,255), 2)
 
     # Returning image with lines denoting path
     return img
@@ -58,17 +59,17 @@ while 1:
     ret, frame = vid.read() 
 
     #Testing different noise reduction methods
-    #p1 = findPath(frame,'gaussian')
+    p1 = findPath(frame,'gaussian')
     #p2 = findPath(frame,'bilateral')
     #p3 = findPath(frame,'median')
     #p4 = findPath(frame,'box')
-    p5 = findPath(frame,'fast')
+    #p5 = findPath(frame,'fast')
     
-    #cv2.imshow('p1',p1)
-    #cv2.imshow('p2',p2)
+    cv2.imshow('p1',p1)
     #cv2.imshow('p3',p3)
+    #cv2.imshow('p2',p2)
     #cv2.imshow('p4',p4)
-    cv2.imshow('p5',p5)
+    #cv2.imshow('p5',p5)
 
 
     if cv2.waitKey(1) & 0xFF == ord('q') or cv2.waitKey(1) & 0xFF == ord('0'): 
