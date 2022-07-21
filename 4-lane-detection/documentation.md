@@ -6,6 +6,11 @@ Things I am trying right now:
 - Trying again based on the medium article 
 - Following YT Video 
 
+Things to figure out: 
+- How to draw the bounding box 
+- How to account for lighting change in video 3 
+- Can other methods be used?
+
 ## References Used
 
 For this topic, you are required to understand some of the basic image segmentation techniques such as thresholding and edge-based methods. Knowledge of clustering-based or learning-based approaches will have my respect. Image segmentation methods are extensively explained in the blog What is image
