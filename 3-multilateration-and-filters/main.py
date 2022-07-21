@@ -29,7 +29,8 @@ def predict(station_pos : typing.List[coordinate], station_dis : typing.List[flo
     if None in station_dis : 
         raise SignalsNotReady("Signals haven't reached yet. Wait for it")
     else : 
-        # Your code goes here
+        # code goes here 
+        
         raise NotImplementedError
 
 def main() : 

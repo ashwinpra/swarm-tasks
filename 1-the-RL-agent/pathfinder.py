@@ -88,7 +88,7 @@ class PathFinder():
         return q_table
 
     # once the q-table is generated, we can use it to find the optimal path
-    def greedy_movement(self, q_table):
+    def get_path(self, q_table):
         s = self.world.START
         path = []
         total_reward = 0
@@ -98,6 +98,6 @@ class PathFinder():
             s, r = self.world.step(s, a_max)
             total_reward += r
 
-        return total_reward
+        return total_reward,path
 
 

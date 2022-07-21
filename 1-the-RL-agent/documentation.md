@@ -1,6 +1,9 @@
 # The RL Agent - Documentation 
 
-
+## Things left to do
+- Debug Q learning 
+- Finish main.py
+- Explore Dyna Q, Dyna Q+, etc. 
 
 ## References Used 
 - [The Complete Reinforcement Learning Dictionary](https://towardsdatascience.com/the-complete-reinforcement-learning-dictionary-e16230b7d24e#f366)
