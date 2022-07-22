@@ -9,7 +9,6 @@ import numpy as np
 import time
 import cv2
 import typing
-
 import lib
 from lib import coordinate as coordinate
 from lib import SignalsNotReady as SignalsNotReady
@@ -30,7 +29,11 @@ def predict(station_pos : typing.List[coordinate], station_dis : typing.List[flo
         raise SignalsNotReady("Signals haven't reached yet. Wait for it")
     else : 
         # code goes here 
-        
+        def denoise(data : typing.List[float]) -> typing.List[float] : 
+            # denoise the data using particle filter 
+
+
+
         raise NotImplementedError
 
 def main() : 
