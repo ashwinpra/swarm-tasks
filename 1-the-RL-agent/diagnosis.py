@@ -35,7 +35,7 @@ class PathFinder():
         q_table[self.world.GOAL[0],self.world.GOAL[1],self.world.ACTIONS] = 1.0
 
 
-        for i in range(self.N):
+        for _ in range(self.N):
             s = self.world.START
 
         while(s != self.world.GOAL):
@@ -60,7 +60,7 @@ class PathFinder():
     
     def sarsa(self):
         #q-table storing q-values for each state and action pairs - state being coordinate, action being LEFT, RIGHT, UP, DOWN
-        q_table = np.zeros((self.world.WORLD_HEIGHT,self.world.WORLD_WIDTH, len(self.world.ACTIONS)))
+        q_table = np.full((self.world.WORLD_HEIGHT,self.world.WORLD_WIDTH, len(self.world.ACTIONS)),-1.0)
 
         q_table[self.world.START[0],self.world.START[1],self.world.ACTIONS] = 1.0
         q_table[self.world.GOAL[0],self.world.GOAL[1],self.world.ACTIONS] = 1.0
@@ -81,7 +81,7 @@ class PathFinder():
             q_table[s[0],s[1],a] = q_table[s[0],s[1],a] + self.alpha*(r + self.gamma*q_table[s_prime[0],s_prime[1],a_prime] - q_table[s[0],s[1],a])
             
             #print(f"s={s}, a={a}, s_prime={s_prime}, a_prime={a_prime}, q_table[s[0],s[1],a]={q_table[s[0],s[1],a]}")
-            #print(f"s={s}, a={a}")
+            #print(f"s={s}, a={a}, q_val={q_table[s[0],s[1],a]}")
             # updating the state and action
             s = s_prime
             a = a_prime
@@ -98,7 +98,8 @@ class PathFinder():
             #print(q_table[s[0],s[1],:])
             a_max = np.argmax(q_table[s[0],s[1],:])
             s_new, r = self.world.step(s, a_max)
-            print(f"s={s}, a={a_max}, s_new={s_new}, r={r}")
+            #print(f"s={s}, a={a_max}, s_new={s_new}, total reward={total_reward}")
+            print(q_table[s[0],s[1],:])
             # add a step to ensure that the agent does not remain in the same cell
             # while(s_new == s):
             #     # choose new a_max as second highest 
@@ -111,7 +112,7 @@ class PathFinder():
             #             a_sec_max = i
             #     a_max = a_sec_max
             #     s_new, r = self.world.step(s, a_max)
-            # s = s_new
+            s = s_new
 
 
             #s,r = self.world.step(s, a_max)
@@ -119,14 +120,32 @@ class PathFinder():
 
         return total_reward,path
 
+    def epsilon_path(self,q_table, e):
+        s = self.world.START
+        path = []
+        total_reward = 0
+        while(s != self.world.GOAL):
+            path.append(s)
+            if(np.random.binomial(1, e) == 1):
+                a = np.random.choice(self.world.ACTIONS)
+            else:
+                a = np.argmax(q_table[s[0],s[1],:])
 
-pf = PathFinder(gamma=1, alpha=0.9, epsilon=0.1, N=1)
+            s, r = self.world.step(s, a)
+            #print(f"s={s}, a={a_max}, s_new={s_new}, total reward={total_reward}")
+            #print(q_table[s[0],s[1],:])
+            total_reward += r
+
+        return total_reward,path
+
+pf = PathFinder(gamma=1, alpha=0.9, epsilon=0.1, N=1000)
 q_table = pf.sarsa()
 print("Done with sarsa")
 print(q_table)
-total_reward, path = pf.get_path(q_table)
+
+total_reward, path = pf.epsilon_path(q_table,0.01)
 print(f"Total reward: {total_reward}")
-print(f"Path: {path}")
+# print(f"Path: {path}")
 
 # pf = PathFinder(gamma=1, alpha=0.9, epsilon=0.1, N=1)
 # q_table = pf.q_learning()

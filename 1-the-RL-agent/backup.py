@@ -61,7 +61,7 @@ def sarsa(alpha,epsilon,gamma):
     q_table[world.START[0],world.START[1],world.ACTIONS] = 1.0
     q_table[world.GOAL[0],world.GOAL[1],world.ACTIONS] = 1.0
 
-    N = 10000 # Number of episodes
+    N = 1 # Number of episodes
 
     for i in range(N):
         s = world.START
@@ -98,12 +98,14 @@ def get_path(q_table):
 
     return total_reward,path
 
-sarsa_reward, sarsa_path = get_path(sarsa(0.5,0.1,1))
-ql_reward, ql_path = get_path(q_learning(0.5,0.1,1))
+sarsa_qt = sarsa(1,0.1,1)
+ql_qt = q_learning(1,0.1,1)
+sarsa_reward, sarsa_path = get_path(sarsa_qt)
+#ql_reward, ql_path = get_path(ql_qt)
 print(f"Sarsa reward: {sarsa_reward}")
 print(f"Sarsa path: {sarsa_path}")
-print(f"Q-learning reward: {ql_reward}")
-print(f"Q-learning path: {ql_path}")
+#print(f"Q-learning reward: {ql_reward}")
+#print(f"Q-learning path: {ql_path}")
 
 
 
