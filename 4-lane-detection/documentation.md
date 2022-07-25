@@ -1,15 +1,12 @@
 # Documentation
 
-Things I am trying right now: 
-- Modifying the code made for winterschool 
-- Trying again based on the article given 
-- Trying again based on the medium article 
-- Following YT Video 
-
 Things to figure out: 
-- How to draw the bounding box 
-- How to account for lighting change in video 3 
-- Can other methods be used?
+- Drawing the bounding box 
+- Bitwise and of yellow and white - how to do together (might have to do yellow and white separately)
+  
+Todo: 
+- Follow the proposed method for box forming :) 
+- Another method to account for lighting fluctuation is modifying contract of the video 
 
 ## References Used
 
@@ -21,3 +18,4 @@ have your chance to learn these fully during the task rounds.
 
 - [Color Image Segmentation — Image Processing](https://mattmaulion.medium.com/color-image-segmentation-image-processing-4a04eca25c0)
 - [What is Image Segmentation?](https://www.analytixlabs.co.in/blog/what-is-image-segmentation/)
+- [Guide used for HSV ranges](https://stackoverflow.com/questions/36817133/identifying-the-range-of-a-color-in-hsv-using-opencv#:~:text=for%20example%20yellow%20has%20hue,go%20away%20from%20perfect%20yellow.)

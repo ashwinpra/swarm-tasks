@@ -7,4 +7,6 @@
 
 - Define attractive and repulsive potentials and gradients 
 - total U = Uattr + Urep 
-- 
+
+- Use local planner to join the nodes, while checking collision also 
+- Learn about Brushfire/ Wavefront planner

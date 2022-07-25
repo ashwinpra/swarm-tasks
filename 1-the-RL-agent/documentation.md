@@ -1,7 +1,7 @@
 # The RL Agent - Documentation 
 
 ## Things left to do
-- Debug Q learning 
+- Debug Q learning - methods to avoid infinite loop - give it a negative reward if it traverses through a cell it had already traversed 
 - Finish main.py
 - Explore Dyna Q, Dyna Q+, etc. 
 

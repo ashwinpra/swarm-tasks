@@ -39,7 +39,7 @@ class PathFinder():
 
         while(s != self.world.GOAL):
         #for i in range(100):
-            a = self.choose_action(s, q_table, self.epsilon)
+            a = self.choose_action(s, q_table)
 
             # taking the action and getting the next state and reward
             s_prime, r = self.world.step(s, a)
@@ -67,14 +67,14 @@ class PathFinder():
 
         for i in range(self.N):
             s = self.world.START
-            a = self.choose_action(s, q_table, self.epsilon)
+            a = self.choose_action(s, q_table)
 
 
         while(s != self.world.GOAL):
         #for i in range(100):
             # taking the action and getting the next state and reward
             s_prime, r = self.world.step(s, a)          
-            a_prime = self.choose_action(s_prime, q_table, self.epsilon)
+            a_prime = self.choose_action(s_prime, q_table)
 
             # updating the q-table with q(s,a)
             q_table[s[0],s[1],a] = q_table[s[0],s[1],a] + self.alpha*(r + self.gamma*q_table[s_prime[0],s_prime[1],a_prime] - q_table[s[0],s[1],a])
