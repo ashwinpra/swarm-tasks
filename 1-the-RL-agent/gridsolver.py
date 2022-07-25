@@ -89,7 +89,7 @@ class GridSolver():
         while(s != self.world.GOAL):
             a = self.choose_action(s, q_table)
             s_prime, r = self.world.step(s,a)
-            print(s)
+            #print(s)
             path.append(s)
             s = s_prime
             total_reward+=r

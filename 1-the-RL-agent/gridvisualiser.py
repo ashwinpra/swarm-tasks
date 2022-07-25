@@ -2,17 +2,18 @@
 import cv2
 import numpy as np
 import gridworld
+import time
 
 
 class GridVisualiser:
     def __init__(self):
         # 9x14 grid, we will multiply by 100 so that each cell is 100x100
-        self.colors = {'blue': (255,0,0), 'red': (0,0,255), 'green': (0,255,0),'white': (255,255,255), 'black': (0,0,0), 'gray': (127,127,127), 'light_blue': (235,206,135)}
+        self.colors = {'blue': (255,0,0), 'red': (0,0,255), 'green': (0,255,0),'white': (255,255,255), 'black': (0,0,0), 'yellow':(0,255,255),'gray': (127,127,127), 'light_blue': (235,206,135)}
         self.gwTemplate = gridworld.GridWorld()
 
 
     def fill_cell(self,grid,y,x,color):
-        grid[y*100:y*100+100,x*100:x*100+100] = color
+        grid[y*100:y*100+99,x*100:x*100+99] = color
 
     def fill_row(self,grid,y,color):
         grid[y*100:y*100+100,:] = color
@@ -52,13 +53,10 @@ class GridVisualiser:
     
     def show_path(self,grid,path):
         for i in range(len(path)):
-            self.fill_cell(grid,path[i][0],path[i][1],self.colors['yellow'])
-        cv2.imshow('Path',grid)
+            if path[i]!=self.gwTemplate.START:
+                self.fill_cell(grid,path[i][0],path[i][1],self.colors['yellow'])
+                # Also write the number of the cell
+                cv2.putText(grid, str(i), (path[i][1]*100+30,path[i][0]*100+30), cv2.FONT_HERSHEY_SIMPLEX, 1, self.colors['black'], 3)
+                cv2.imshow('Grid',grid)
+                cv2.waitKey(0)
 
-
-gridvisualiser = GridVisualiser()
-grid = gridvisualiser.draw_grid()
-
-cv2.imshow("Grid", grid)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
