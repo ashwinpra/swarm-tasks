@@ -1,11 +1,9 @@
 # Documentation
-
-Things to figure out: 
-- Drawing the bounding box 
-- Bitwise and of yellow and white - how to do together (might have to do yellow and white separately)
   
 Todo: 
-- Follow the proposed method for box forming :) 
+- Implement OOP
+- Write documentation and comments
+- Export processed videos
 - Another method to account for lighting fluctuation is modifying contract of the video 
 
 ## References Used
