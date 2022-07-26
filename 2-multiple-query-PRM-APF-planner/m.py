@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
+from matplotlib.path import Path
 
 # The map is 60 x 40
 map = np.zeros((60, 40))
@@ -22,15 +23,26 @@ def astar(start,goal,nodes):
 def apf(q1,q2):
     pass
 
+def check_points(Q,obstacles):
+    checks = np.full(len(Q),1)
+    # check if point lies within the obstacle 
+    for obstacle in obstacles:
+        p = Path(obstacle)  
+        print(p)
+        bool = p.contains_points(Q)
+        for i in range(len(bool)):
+            if bool[i] == True:
+                checks[i] = 0
+    return checks
 
 plt.rcParams['figure.figsize'] = (12, 8)
-x = np.linspace(0, 60, 10)
-y = np.linspace(0, 40, 10)
+
 fig,ax = plt.subplots()
 
 ax.set_title('Probabilistic Road Map')
 
-with open("obstacles.txt") as f:
+obstacles = []
+with open("2-multiple-query-PRM-APF-planner/obstacles.txt") as f:
     for line in f:
         coord_arr = []
         vertices_arr = line.split()
@@ -41,5 +53,23 @@ with open("obstacles.txt") as f:
         ax.add_patch(p)
         ax.set_xlim([0, 60])
         ax.set_ylim([0, 40])
-        #plt.fill(vertices_arr[::2], vertices_arr[1::2])
+        obstacles.append(coord_arr)
+
+# A list of coordinates that are chosen randomly 
+N_nodes = 100
+Q = [(np.random.randint(0,60), np.random.randint(0,40)) for _ in range(N_nodes)]
+
+check = check_points(Q,obstacles)
+
+for point in Q:
+    if check[Q.index(point)] == 1:
+        plt.scatter(point[0], point[1], color = 'green', marker = 'o', s = 25)
+    else:
+        plt.scatter(point[0], point[1], color = 'red', marker = 'o', s = 25)
+
+# Now use APF to join the green nodes 
+
+
+plt.show()
+
 
