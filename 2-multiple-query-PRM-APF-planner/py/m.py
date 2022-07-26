@@ -5,7 +5,7 @@ from matplotlib.patches import Polygon
 from matplotlib.path import Path
 
 # The map is 60 x 40
-map = np.zeros((60, 40))
+# map = np.zeros((60, 40))
 # Nodes can be denoted by 1s and obstacles (all the cells in the area) by 0s
 
 #! Utility functions
