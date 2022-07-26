@@ -19,3 +19,6 @@
 - [Temporal-Difference (TD) Learning](https://towardsdatascience.com/temporal-difference-learning-47b4a7205ca8#:~:text=TD(0),along%20the%20way%20reward%20obtained.)
 - [SARSA Reinforcement Learning](https://www.geeksforgeeks.org/sarsa-reinforcement-learning/)
 - [Q-Learning vs. SARSA](https://www.baeldung.com/cs/q-learning-vs-sarsa)
+- https://ranko-mosic.medium.com/online-planning-agent-dyna-q-algorithm-and-dyna-maze-example-sutton-and-barto-2016-7ad84a6dc52b#:~:text=Dyna%2DQ%20is%20a%20conceptual,(%20model%2Dbased%20)%C2%B9.
+- https://notesonai.com/Dyna-Q+-+Planning+and+Learning
+- https://towardsdatascience.com/reinforcement-learning-model-based-planning-methods-extension-572dfee4cceb

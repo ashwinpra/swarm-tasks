@@ -5,6 +5,7 @@ Todo:
 - Write documentation and comments
 - Export processed videos
 - Another method to account for lighting fluctuation is modifying contract of the video 
+- Small step for convenience - dont do the 0.95 thing if its already >0.95
 
 ## References Used
 

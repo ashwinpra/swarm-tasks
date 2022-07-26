@@ -10,3 +10,8 @@
 
 - Use local planner to join the nodes, while checking collision also 
 - Learn about Brushfire/ Wavefront planner
+
+## References Used
+- https://github.com/abdurj/Local-Planner-Visualization-Project/blob/master/planners/planners.py
+- https://github.com/KaleabTessera/PRM-Path-Planning/blob/master/main.py
+- 
