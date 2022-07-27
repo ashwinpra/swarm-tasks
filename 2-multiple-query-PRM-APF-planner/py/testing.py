@@ -16,7 +16,17 @@ def check_point(Q,obstacles):
                 checks[i] = 0
     return checks
 
-
+def check_collision(q1,q2,obs):
+    q_m = (int((q1[0]+q2[0])/2), int((q1[1]+q2[1])/2))
+    # print(type(q1))
+    # print(type(q_m)) 
+    for obstacle in obs:
+        p = Path(obstacle)
+        if(p.contains_point(q_m)):
+            return True
+        else:
+            return check_collision(q1,q_m,obs) or check_collision(q_m,q2,obs)
+        return False   
 
 obstacles = []
 
@@ -32,4 +42,9 @@ with open("obstacles.txt") as f:
 # A list of coordinates that are chosen randomly 
 N_nodes = 1000
 Q = [(np.random.rand()*60, np.random.rand()*40) for _ in range(N_nodes)]
+
+q1 = (0,0)
+q2 = (60,40)
+
+print(check_collision(q1,q2,obstacles))
 

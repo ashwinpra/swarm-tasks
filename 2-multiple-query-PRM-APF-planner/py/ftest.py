@@ -29,3 +29,4 @@ with open("text.txt") as f:
 
 plt.show()
 
+
