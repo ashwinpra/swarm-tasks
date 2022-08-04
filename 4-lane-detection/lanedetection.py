@@ -1,10 +1,19 @@
 import cv2 
 import numpy as np 
 
-level = int(input("Enter level: "))
-vid = cv2.VideoCapture(f"./raw-videos/level{level}.mp4")
-#out = cv2.VideoWriter('output.avi', -1, 20.0, (640,480))
+class LaneDetection():
+    def __init__(self,vid):
+        self.vid = vid
+        self.lower_y = np.array([20,100,100],dtype=np.uint8)
+        self.upper_y = np.array([40,255,255],dtype=np.uint8)
+        self.lower_w = 220
+        self.upper_w = 255
 
+        self.last_left_line = None
+        self.last_right_line = None
+
+        self.last_y_lines = None
+        self.last_w_lines = None
 
 def ROI(frame):
     '''
@@ -83,7 +92,7 @@ def getLR(lines):
     right_line = lines[min_x1] if slope(lines[min_x1])<0 else None
     return left_line,right_line
 
-def draw_box(frame,left_line,right_line):
+def drawBox(frame,left_line,right_line):
     # extend the lines so that they have same y coordinates
     # draw the polygon
     x1, y1, x2, y2 = left_line[0]
@@ -101,16 +110,8 @@ def draw_box(frame,left_line,right_line):
 
     return frame
 
-lower_y = np.array([20,100,100],dtype=np.uint8)
-upper_y = np.array([40,255,255],dtype=np.uint8)
-lower_w = 220
-upper_w = 255
-
-last_left_line = None
-last_right_line = None
-
-last_y_lines = None
-last_w_lines = None
+def processFrame(frame):
+    pass
 
 while 1:
     ret, frame = vid.read() 
@@ -146,7 +147,7 @@ while 1:
             right_line = last_right_line
 
         try:
-            frame = draw_box(frame,left_line,right_line)
+            frame = drabox(frame,left_line,right_line)
         except:
             continue
 
