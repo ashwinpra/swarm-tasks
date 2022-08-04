@@ -25,12 +25,21 @@ Stuff
 ## Result 
  I was able to obtain a near-steady visualisation of the path using the above method, with some minor variations arising due to irregular lightning conditions, shaking of the camera, etc. 
  Here are some stills from each video: 
- ![[Pasted image 20220805004710.png]]Level 1
- 
+![Level 1](/Users/ashwinprasanth/Documents/Coding/swarm-tasks/4-lane-detection/results/level1.png)
 
+<h4 align="center">Level 1</h4>
+
+![Level 2](/Users/ashwinprasanth/Documents/Coding/swarm-tasks/4-lane-detection/results/level2.png)
+
+<h4 align="center">Level 2</h4>
+
+![Level 3](/Users/ashwinprasanth/Documents/Coding/swarm-tasks/4-lane-detection/results/level3.png)
+
+<h4 align="center">Level 3</h4>
 
 Stuff
 ---
+
 Todo: 
 - Implement OOP
 - Write documentation and comments
