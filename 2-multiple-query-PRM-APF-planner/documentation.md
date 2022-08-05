@@ -11,6 +11,8 @@
 - Use local planner to join the nodes, while checking collision also 
 - Learn about Brushfire/ Wavefront planner
 
+- Modify it such that we deal with only the green nodes, rather than using check function everywhere
+
 ## References Used
 - https://github.com/abdurj/Local-Planner-Visualization-Project/blob/master/planners/planners.py
 - https://github.com/KaleabTessera/PRM-Path-Planning/blob/master/main.py
