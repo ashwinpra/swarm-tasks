@@ -1,9 +1,8 @@
 # Documentation
----
-## Instructions 
-Stuff
 
----
+## Instructions 
+
+
 ## Process and Methods Used
 - Opening the video frame-by-frame using OpenCV library 
 - Processing the video to isolate the lane lines: 
@@ -21,32 +20,24 @@ Stuff
   - Each line was extended such that the y-coordinates were between 0.65 and 0.95 of the height of the image (rounded to the nearest integer) - this was done using the equation of straight line. 
   - Now these two lines were drawn, as well as a trapezium that joins them, to denote the lane.
 
----
+
 ## Result 
  I was able to obtain a near-steady visualisation of the path using the above method, with some minor variations arising due to irregular lightning conditions, shaking of the camera, etc. 
  Here are some stills from each video: 
-![Level 1](/Users/ashwinprasanth/Documents/Coding/swarm-tasks/4-lane-detection/results/level1.png)
-
+ 
+![Level 1](https://github.com/ashwinpra/swarm-tasks/tree/master/4-lane-detection/results/level1.png)
 <h4 align="center">Level 1</h4>
 
-![Level 2](/Users/ashwinprasanth/Documents/Coding/swarm-tasks/4-lane-detection/results/level2.png)
-
+![Level 2](https://github.com/ashwinpra/swarm-tasks/tree/master/4-lane-detection/results/level2.png)
 <h4 align="center">Level 2</h4>
 
-![Level 3](/Users/ashwinprasanth/Documents/Coding/swarm-tasks/4-lane-detection/results/level3.png)
+![Level 3](https://github.com/ashwinpra/swarm-tasks/tree/master/4-lane-detection/results/level3.png)
 
 <h4 align="center">Level 3</h4>
 
-Stuff
----
+Another method that could have been implemented to avoid the above mentioned irregularities would have meen to modify the contrast of the video accordingly to account for the fluctuation in lighting.
 
-Todo: 
-- Implement OOP
-- Write documentation and comments
-- Export processed videos
-- Another method to account for lighting fluctuation is modifying contract of the video 
 
----
 
 ## References Used
 
