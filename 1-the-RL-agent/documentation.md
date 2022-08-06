@@ -1,5 +1,17 @@
 # The RL Agent - Documentation 
 
+## Instructions
+
+Stuff 
+
+## Process and Methods Used 
+
+Stuff 
+
+## Results
+
+Stuff 
+
 ## Things left to do
 - Debug Q learning:
    - methods to avoid infinite loop - give it a negative reward if it traverses through a cell it had already traversed 
