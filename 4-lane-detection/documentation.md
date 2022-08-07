@@ -1,7 +1,11 @@
-# Documentation
+# Lane Detection - Documentation
 
 ## Instructions 
 
+- The program to be run is `main.py`.
+- It asks the level of the video as a prompt (1,2 or 3) and accordingly detects the path in that video and shows it approppriately.
+- The processed and raw videos can be viewed in the respective folders. 
+- All the functions used for this task are in the `functions.py` file.
 
 ## Process and Methods Used
 - Opening the video frame-by-frame using OpenCV library 
@@ -24,7 +28,7 @@
 ## Result 
  I was able to obtain a near-steady visualisation of the path using the above method, with some minor variations arising due to irregular lightning conditions, shaking of the camera, etc. 
  Here are some stills from each video: 
- 
+
 ![Level 1](https://github.com/ashwinpra/swarm-tasks/tree/main/4-lane-detection/results/level1.png)
 <h4 align="center">Level 1</h4>
 
