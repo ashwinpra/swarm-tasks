@@ -144,4 +144,4 @@ def processYWLines(frame,lower_y,upper_y,lower_w,upper_w):
     if(y_lines is None and w_lines is None):
         all_lines = np.concatenate((last_y_lines,last_w_lines),axis=0)
 
-    return y_processed, w_processed, all_lines
+    return all_lines

@@ -1,26 +1,32 @@
-- An algorithm for making the grid 
-- An algorithm for local path planning 
-- An algorithm for handling queries 
-- A pathfinding algorithm for queries 
-- Collision-check algorithm 
-- Postprocessing (Shortening and Smoothening)
+# Multiple Query PRM APF Planner - Documentation
 
-- Define attractive and repulsive potentials and gradients 
-- total U = Uattr + Urep 
+## Instructions 
 
-- Use local planner to join the nodes, while checking collision also 
-- Learn about Brushfire/ Wavefront planner
+- **NOTE:** I have done only upto checkpoint 2 (included), i.e., until PRM-based global planning.
+- The program to be run is `main.ipynb` . 
+- I have provided necessary documentation in the notebook wherever necessary, and also displayed the required plots. 
 
-- Modify it such that we deal with only the green nodes, rather than using check function everywhere
+## Process and Methods Used
+
+- Matplotlib library was used for visualising the grid 
+- First the obstacles were drawing using the values given in `obstacles.txt`
+
+- Global path planning was done using Probabilistic Road Map (PRM) method: 
+  - A list of $100$ nodes was generated randomly, and it was checked whether they lied within any obstacle or not.
+  - After following the above method, the valid nodes were stored separately for use, whereas the others were rejected. 
+  - Each valid node was connected to its $K$ (taken as $3$) nearest neighbors connected by straight lines if there was no obstacle between them - this was checked using incremental method. 
+  - Now the queries from `queries.txt` were sampled one-by-one. 
+  - They were augmented into the roadmap, then connected to the existing roadmap through its $K$ nearest neighbors. 
+  - $A*$ algorithm was then used to find the shortest path between them:
+    - Starting from the `start` node, each K neighboring node was explored and its distance was updated following the principles of `A*` algorithm. 
+    - The heuristic function chosen was the distance of the current node from the `goal` node. 
+    - **Note:** Distance was just calculated as the sum of the square of the difference of x and y co-ordinates. 
+
+## Results 
+
+All the relevant results are displayed in the Jupyter Notebook. 
 
 ## References Used
-- https://github.com/abdurj/Local-Planner-Visualization-Project/blob/master/planners/planners.py
-- https://github.com/KaleabTessera/PRM-Path-Planning/blob/master/main.py
-- https://cs.gmu.edu/~kosecka/cs685/cs685-motion-planning.pdf
-- https://d-nb.info/1123478015/34
-- https://web.ics.purdue.edu/~rvoyles/Classes/ROSprogramming/Lectures/PathPlanning.pdf
-- http://lavalle.pl/planning/bookbig.pdf
-- https://github.com/nicholasRenninger/cSpaceViz_Gradient_Wavefront_planners
-- https://www.researchgate.net/figure/Example-of-Artificial-Potential-Field-method_fig3_347823605
-- https://thesai.org/Downloads/Volume10No8/Paper_76-Artificial_Potential_Field_Algorithm_Implementation.pdf
-- https://medium.com/@rymshasiddiqui/path-planning-using-potential-field-algorithm-a30ad12bdb08
+
+- [Principles of Robot Motion](http://mathdep.ifmo.ru/wp-content/uploads/2018/10/Intelligent-Robotics-and-Autonomous-Agents-series-Choset-H.-et-al.-Principles-of-Robot-Motion_-Theory-Algorithms-and-Implementations-MIT-2005.pdf)
+- [A* Search Algorithm](https://www.geeksforgeeks.org/a-search-algorithm/)

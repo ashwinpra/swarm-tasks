@@ -5,7 +5,7 @@ from functions import *
 level = int(input("Enter level: "))
 
 vid = cv2.VideoCapture(f"./raw-videos/level{level}.mp4")
-   
+
 lower_y = np.array([20,100,100],dtype=np.uint8)
 upper_y = np.array([40,255,255],dtype=np.uint8)
 lower_w = 220
@@ -21,7 +21,7 @@ while 1:
     ret, frame = vid.read() 
 
     if ret:
-        y_processed, w_processed, all_lines = processYWLines(frame,lower_y,upper_y,lower_w,upper_w)
+        all_lines = processYWLines(frame,lower_y,upper_y,lower_w,upper_w)
         try:
             left_line,right_line = getLR(all_lines)
         except:
@@ -41,4 +41,5 @@ while 1:
         break
 
 vid.release()
+result.release()
 cv2.destroyAllWindows()

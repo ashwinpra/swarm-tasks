@@ -2,7 +2,7 @@ from gridsolver import GridSolver
 from gridvisualiser import GridVisualiser
 import numpy as np
 
-pathfinder = GridSolver(1,0.9,0.01,1000)
+pathfinder = GridSolver(1,0.9,10000)
 
 ql_q_table = pathfinder.q_learning()    
 

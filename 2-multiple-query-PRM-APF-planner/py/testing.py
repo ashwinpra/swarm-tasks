@@ -42,9 +42,8 @@ with open("obstacles.txt") as f:
 # A list of coordinates that are chosen randomly 
 N_nodes = 1000
 Q = [(np.random.rand()*60, np.random.rand()*40) for _ in range(N_nodes)]
+Q.append((0,0))
 
-q1 = (0,0)
-q2 = (60,40)
+print(Q.index((0,0)))
 
-print(check_collision(q1,q2,obstacles))
 
