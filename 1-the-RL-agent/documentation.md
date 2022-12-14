@@ -23,21 +23,30 @@
 
   Where: 
 
-  	- $s_t$ is the current state
-  	- $a_t$ is the action taken from that state, which was chosen following $\epsilon$-greedy policy.
-  	- $s_{t+1}$ is the state reached after carrying out $a_t$ from $s_t$
-	
-  	- $\alpha$ is the step length taken for updation 
-  	- $r_{t+1}$ is the reward obtained for carrying out action $a_t$ from state $s_t$
-  	- $\gamma$ is the discount factor for future rewards 
-  	- ${max}_{a}Q(s_{t+1},a_{t+1})$ is the maximum reward that can be obtained from state $s_{t+1}$
+  - $s_t$ is the current state
+
+  - $a_t$ is the action taken from that state, which was chosen following $\epsilon$-greedy policy.
+
+  - $s_{t+1}$ is the state reached after carrying out $a_t$ from $s_t$
+
+  - $\alpha$ is the step length taken for updation 
+
+  - $r_{t+1}$ is the reward obtained for carrying out action $a_t$ from state $s_t$
+
+  - $\gamma$ is the discount factor for future rewards 
+
+  - ${max}_{a}Q(s_{t+1},a_{t+1})$ is the maximum reward that can be obtained from state $s_{t+1}$
+
+    
 
 - The values for each constant I used were: 
   - $N$ = 10000
   - $\gamma$  = 1
   - $\alpha$ = 0.9
   - $\epsilon$ = 0.1 for first 1000 iterations, then 0.01 
+  
 - Once the Q-table was filled, the values were used to find a path from start to goal, following a greedy policy wherein the action corresponding to maximum Q-value was chosen for each state. 
+
 - The path was then stored and then visualised using OpenCV library.  
 
 ## Results
