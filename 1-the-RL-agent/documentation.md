@@ -19,7 +19,7 @@
 
 - This Q-table was then updated over $N$ episodes following this formula: 
 
-  $$Q(s_t,a_t) = (1-\alpha \cdot *Q(s_t,a_t) + \alpha \cdot (r_{t+1} + \gamma \cdot {\max}_{a}Q(s_{t+1},a_{t+1}))$$
+  $$Q(s_t,a_t) = (1-\alpha) \cdot Q(s_t,a_t) + \alpha \cdot (r_{t+1} + \gamma \cdot {\max}_{a}Q(s_{t+1},a_{t+1}))$$
 
   Where: 
 
